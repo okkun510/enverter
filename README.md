@@ -2,25 +2,50 @@
 
 `enverter` は macOS 環境を設定するためのスクリプトです。
 
-## 使い方
+## 新しいPCのセットアップ手順
 
-以下のコマンドを実行してください。
+### 0. 事前準備
 
-```shell
+Xcode Command Line Tools をインストールします。
+
+```bash
+xcode-select --install
+```
+
+SSH キーを作成し、GitHub に登録します。
+
+```bash
+ssh-keygen -t ed25519 -C "your_email@example.com"
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519
+cat ~/.ssh/id_ed25519.pub
+```
+
+表示された公開鍵を https://github.com/settings/keys から登録してください。
+
+### 1. dotfiles のセットアップ
+
+```bash
+git clone git@github.com:okkun510/dotfiles.git ~/ghq/github.com/okkun510/dotfiles
+cd ~/ghq/github.com/okkun510/dotfiles
+git checkout personal
+sh init.sh
+```
+
+`.Brewfile` や `.zshrc` などの設定ファイルがシンボリックリンクで配置されます。
+初回実行時に Git の名前とメールアドレスの入力を求められます。
+
+### 2. enverter のセットアップ
+
+```bash
+git clone git@github.com:okkun510/enverter.git ~/ghq/github.com/okkun510/enverter
+cd ~/ghq/github.com/okkun510/enverter
 sh src/init.sh
 ```
 
-## 初回実行時のステップ
+Homebrew、Zinit、Mise がインストールされ、`.Brewfile` に記載されたパッケージが一括インストールされます。
 
-初回実行時だけ追加で以下のステップを実行する必要があります。
-
-1. GitHub CLI を使い鍵の作成を行います。
-   ```
-   gh auth login
-   ```
-
-2. すべての変更と設定が有効になるように、ターミナルを再起動してください。
-3. vscodeとiTerm2にfontを適用してください
+### 3. ターミナルを再起動
 
 ## Brewfile
 
