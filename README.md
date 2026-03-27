@@ -47,6 +47,13 @@ Homebrew、Zinit、Mise がインストールされ、`.Brewfile` に記載さ�
 
 ### 3. ターミナルを再起動
 
+### 4. 追加セットアップ
+
+- [ ] GitHub CLI で認証する: `gh auth login`
+- [ ] Claude Code をインストールする: `npm install -g @anthropic-ai/claude-code`
+- [ ] VSCode にフォント（JetBrains Mono Nerd Font）を設定する
+- [ ] App Store から Keynote, Numbers, Pages, Slack, Xcode をインストール
+
 ## Brewfile
 
 ### 動作仕様
